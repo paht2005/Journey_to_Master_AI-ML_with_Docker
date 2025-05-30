@@ -1,5 +1,7 @@
 
-# 📖 Introduction: Why Docker for AI/ML
+# 📖 Introduction: Why Docker for AI/ML 
+<img src="images/img-1.jpg">
+---
 
 ## 🐳 What is Docker and Why It Matters in AI/ML
 Docker is a lightweight containerization platform that enables packaging code, dependencies, and configurations into isolated units — containers. This ensures consistent environments for machine learning workflows across local, dev, and cloud setups.
@@ -16,7 +18,7 @@ Docker is a lightweight containerization platform that enables packaging code, d
 ## 🆚 Docker vs Virtual Machines
 
 | Feature         | Docker             | Virtual Machines     |
-|----------------|--------------------|-----------------------|
+|----------------|--------------------|-----------------------:
 | Startup Time    | Seconds            | Minutes               |
 | Resource Use    | Lightweight        | Heavy                 |
 | Portability     | High               | Medium                |
