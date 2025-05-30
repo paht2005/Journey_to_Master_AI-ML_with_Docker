@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journey to Master AI/ML with Docker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #3b82f6;
+      --bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      --text: #1e293b;
+      --light: #e2e8f0;
+      --radius: 10px;
+      --dark-bg: #0f172a;
+      --dark-text: #e2e8f0;
+      --dark-accent: #38bdf8;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode p,
+    body.dark-mode .intro-text {
+      color: var(--dark-text);
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 60px 10vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    button {
+      margin: 6px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+    .toggle-dark {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      border-radius: 50px;
+      padding: 10px 16px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    #markdown-content {
+      margin-top: 30px;
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #markdown-content.show {
+      opacity: 1;
+    }
+
+    body.dark-mode #markdown-content {
+      background: #1e293b;
+      color: var(--dark-text);
+      box-shadow: none;
+    }
+
+    img.avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 30px;
+      border: 4px solid var(--accent);
+    }
+
+    .intro-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .intro-text {
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<button class="toggle-dark" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+
+<!-- Hero Intro Section -->
+<section class="reveal">
+  <div class="intro-container">
+    <img src="images/avatar.jpg" alt="Avatar" class="avatar">
+    <div class="intro-text">
+      <h1>Hi, I'm Công Phát 👋</h1>
+      <p>
+        Welcome to <strong>Journey to Master AI/ML with Docker</strong> — a practical handbook that teaches you how to build, containerize, and deploy real-world machine learning applications using Docker.
+      </p>
+      <p>
+        This guide walks you through tools, workflows, and projects that make AI/ML development faster, reproducible, and production-ready.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation + Content Section -->
+<section class="reveal">
+  <div>
+    <h2>📚 Explore the Handbook</h2>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <button onclick="loadMarkdown('introduction.md')">📖 Introduction</button>
+      <button onclick="loadMarkdown('docker-essentials.md')">🔧 Docker Essentials</button>
+      <button onclick="loadMarkdown('workflow.md')">📦 ML Workflow</button>
+      <button onclick="loadMarkdown('project1.md')">🧪 Project 1</button>
+      <button onclick="loadMarkdown('project2.md')">⚙ Project 2</button>
+      <button onclick="loadMarkdown('project3.md')">🌐 Project 3</button>
+      <button onclick="loadMarkdown('final-thoughts.md')">🎓 Final Thoughts</button>
+      <button onclick="loadMarkdown('appendix.md')">📁 Appendix</button>
+    </div>
+
+    <div id="markdown-content">
+      <p>Select a section to view the content here...</p>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  // Markdown loader with fade-in effect
+  function loadMarkdown(filename) {
+    fetch('markdown/' + filename)
+      .then(res => res.text())
+      .then(md => {
+        const content = document.getElementById('markdown-content');
+        content.classList.remove('show');
+        content.innerHTML = marked.parse(md);
+        setTimeout(() => content.classList.add('show'), 50);
+      })
+      .catch(err => {
+        document.getElementById('markdown-content').innerHTML = '<p>Error loading content.</p>';
+        console.error(err);
+      });
+  }
+
+  // Dark mode auto detection + toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark' || (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+      document.body.classList.add('dark-mode');
+    }
+
+    gsap.utils.toArray('.reveal').forEach((section) => {
+      gsap.fromTo(section, {opacity: 0, y: 50}, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 85%',
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
