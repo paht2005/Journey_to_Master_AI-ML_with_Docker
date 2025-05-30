@@ -1,6 +1,7 @@
 
-# 📖 Introduction: Why Docker for AI/ML 
+# **📖 Introduction: Why Docker for AI/ML** 
 <img src="images/img-1.jpg">
+
 ---
 
 ## 🐳 What is Docker and Why It Matters in AI/ML
