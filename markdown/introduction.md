@@ -1,26 +1,28 @@
 
 # **📖 Introduction: Why Docker for AI/ML** 
 <p align="left">
-    <img src="images/img-1.jpg" width="200"><br/>
+    <img src="images/img-1.jpg" width="800"><br/>
 </p>
----
 
-## 🐳 What is Docker and Why It Matters in AI/ML
+***
+
+## **🐳 What is Docker and Why It Matters in AI/ML**
+
 Docker is a lightweight containerization platform that enables packaging code, dependencies, and configurations into isolated units — containers. This ensures consistent environments for machine learning workflows across local, dev, and cloud setups.
 
-### Benefits
+### **Benefits**
 - Reproducibility
 - Environment isolation
 - Easy deployment and scaling
 
 [🔝 Back to Top](#introduction-why-docker-for-ai/ml)
 
----
+***
 
 ## 🆚 Docker vs Virtual Machines
 
 | Feature         | Docker             | Virtual Machines     |
-|----------------|--------------------|-----------------------:
+|:----------------|:-------------------|:----------------------:
 | Startup Time    | Seconds            | Minutes               |
 | Resource Use    | Lightweight        | Heavy                 |
 | Portability     | High               | Medium                |
@@ -33,7 +35,8 @@ Docker is optimal for iterative ML development and deployment workflows.
 
 ---
 
-## 👨‍🔬 Who Benefits from Docker in AI/ML?
+## **👨‍🔬 Who Benefits from Docker in AI/ML?**
+
 - **ML Engineers**: reproducible pipelines, model packaging.
 - **Data Scientists**: fast experimentation.
 - **DevOps Teams**: simplified environment control.
@@ -43,7 +46,7 @@ Docker is optimal for iterative ML development and deployment workflows.
 
 ---
 
-## 🏢 Real-World Adoption Examples
+## **🏢 Real-World Adoption Examples**
 - **Netflix**: Containerized recommendation engines.
 - **Uber**: ML platform “Michelangelo” built on Docker.
 - **NASA**: Satellite image ML pipelines.
